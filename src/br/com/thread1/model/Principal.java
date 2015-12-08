@@ -3,6 +3,7 @@ package br.com.thread1.model;
 import java.util.Properties;
 
 public class Principal {
+	
     Properties properties1;
     Properties properties2;
     Properties properties3;
