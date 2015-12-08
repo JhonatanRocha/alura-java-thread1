@@ -17,12 +17,17 @@ public class TestInsercaoElementos {
 			listaThreads[i].start();
 		}
 		
-		Thread.sleep(2000);
-		
-		String[] listaString = Armazenamento.instanceOfArmazenamento.recuperaLista();
-		
-		for (int i = 0; i < 1000; i++) {
-			System.out.println(listaString[i]);
+		synchronized (Armazenamento.instanceOfArmazenamento) {
+			
+			if(Armazenamento.instanceOfArmazenamento.getContador() < 1000) {
+				
+				Armazenamento.instanceOfArmazenamento.wait();
+				String[] listaString = Armazenamento.instanceOfArmazenamento.recuperaLista();
+				
+				for (int i = 0; i < 1000; i++) {
+					System.out.println(listaString[i]);
+				}
+			}
 		}
 	}
 }

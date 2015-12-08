@@ -10,10 +10,8 @@ public class InserirElementos implements Runnable {
 	
 	@Override
 	public void run() {
-		synchronized (Armazenamento.instanceOfArmazenamento) {
-			for (int i = 1; i <= 100; i++) {
-				Armazenamento.instanceOfArmazenamento.addElement("Thread" + numeroThread + " - " + i);				
-			} 
-		}
+		for (int i = 1; i <= 100; i++) {
+			Armazenamento.instanceOfArmazenamento.addElement("Thread" + numeroThread + " - " + i);				
+		} 
 	}
 }
